@@ -29,7 +29,12 @@ photos.forEach((photo) => {
   img.onerror = () => {
     frame.textContent = "Image indisponible : vérifie le lien Cloudinary.";
   };
-  frame.appendChild(img);
+  const link = document.createElement("a");
+link.href = photo.imageUrl;
+link.target = "_blank";
+link.rel = "noopener noreferrer";
+link.appendChild(img);
+frame.appendChild(link);
   const title = document.createElement("h3");
   title.textContent = photo.title;
   const description = document.createElement("p");
